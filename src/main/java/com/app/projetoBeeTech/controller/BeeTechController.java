@@ -1,4 +1,4 @@
-package com.app.projetobeetech.controller;
+package com.app.projetoBeeTech.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -1,4 +1,4 @@
-package com.app.projetobeetech.dao;
+package com.app.projetoBeeTech.dao;
 
 import java.util.List;
 
