@@ -1,0 +1,51 @@
+Requisitos Funcionais - Resumo:
+
+Parte 1 -> cadastro dos associados e suas colmeias.
+Parte 2 -> registro das produções (mel + derivados).
+Parte 3 -> cálculos automáticos dos indicadores.
+Parte 4 -> relatórios
+
+
+RF01 – O sistema deve permitir cadastrar, editar e excluir dados de associados (nome, CPF/CNPJ, contato, endereço, área de atuação).
+RF02 – O sistema deve permitir cadastrar o número de colmeias de cada associado.
+RF03 – O sistema deve permitir gerenciar perfis de acesso (ex.: administrador da associação e agente de negócios).
+
+
+RF04 – O sistema deve permitir registrar a produção de mel de cada associado (em kg).
+RF05 – O sistema deve permitir registrar a produção de derivados (cera, própolis, geleia real).
+RF06 – O sistema deve permitir vincular a produção ao número de colmeias ativas no período.
+RF07 – O sistema deve permitir registrar perdas (ex.: mortalidade de colmeias, safras afetadas).
+
+
+RF08 – O sistema deve calcular automaticamente a produção média por colmeia (kg/colmeia).
+RF09 – O sistema deve calcular a produção média por associado.
+
+
+RF10 – O sistema deve gerar relatórios consolidados da produção (por associado, por região e total da associação).
+RF11 – O sistema deve permitir visualizar gráficos (produção por safra, comparação entre associados, evolução histórica).
+
+
+
+
+
+Requisitos não funcionais - Resumo:
+
+Parte 1 -> Usabilidade
+Parte 2 -> Facilidade
+Parte 3 -> Intuitividade
+Parte 4 -> Segurança
+
+
+RNF01 – O sistema deve possuir interface gráfica amigável, com menus claros e linguagem acessível ao público não técnico.
+RNF02 – O sistema deve ser compatível com Windows 10 e Windows 11 em versão desktop.
+
+
+RNF03 – O sistema deve manter baixo consumo de recursos (CPU e memória), garantindo desempenho adequado em computadores com configurações mínimas de 4GB RAM e processador i3 ou equivalente.
+
+
+RNF04 – O sistema deve apresentar dashboards gráficos para que o usuário compreenda rapidamente os principais indicadores de produção.
+RNF05 – O sistema deve priorizar fluxos lineares (passo a passo) para operações críticas, como cadastro de associados e registro de produção.
+
+
+RNF06 – O sistema deve exigir autenticação de usuários com login e senha.
+RNF07 – O sistema deve armazenar senhas de forma criptografada

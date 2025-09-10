@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+
+actor "Administrador do Sistema" as Admin
+actor "Agente de Negócios" as Agente
+
+rectangle "BeeTech" {
+
+  (Cadastrar/Editar/Excluir Associados) as UC1
+  (Cadastrar Colmeias por Associado) as UC2
+  (Gerenciar Perfis de Acesso) as UC3
+
+  (Registrar Produção de Mel) as UC4
+  (Registrar Produção de Derivados) as UC5
+  (Registrar Perdas de Produção) as UC7
+
+  (Vincular Produção às Colmeias Ativas) as UC6
+
+  (Calcular Produção Média por Colmeia) as UC8
+  (Calcular Produção Média por Associado) as UC9
+
+  (Gerar Relatórios Consolidados) as UC10
+  (Visualizar Gráficos de Produção) as UC11
+
+  (Gerenciar Agentes de Negócio) as UC12
+}
+
+' --- Atores e casos de uso principais ---
+Agente --> UC1
+Agente --> UC2
+Agente --> UC3
+Agente --> UC4
+Agente --> UC5
+Agente --> UC7
+Agente --> UC10
+Agente --> UC11
+
+' --- Relações de inclusão ---
+UC4 --> UC6 : <<include>>
+UC5 --> UC6 : <<include>>
+UC10 --> UC8 : <<include>>
+UC10 --> UC9 : <<include>>
+
+' --- Relações de extensão ---
+UC10 --> UC11 : <<extend>>
+
+' --- Administrador do sistema herda permissões do Agente ---
+Admin --|> Agente
+
+' --- Permissões adicionais do Administrador ---
+Admin --> UC12
+@enduml
