@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Producao {
     private int id;
+
+
     private enum tipo { MEL, CERA, PROPOLIS};
     private double quantidade;
     private Date data;
@@ -30,6 +32,12 @@ public class Producao {
     public void setQuantidade(double quantidade) {
         this.quantidade = quantidade;
     }
+
+
+    public String getTipo() {
+        return "";
+    }
+
 
     public Date getData() {
         return data;

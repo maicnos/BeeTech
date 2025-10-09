@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class Gasto {
     private int id;
+
+
+
     private enum tipo { TRANSPORTE, INSUMOS, MANUTENCAO };
     private double valor;
     private Date data;
@@ -36,6 +39,10 @@ public class Gasto {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public String getTipo() {
+        return "";
     }
 
     @Override
