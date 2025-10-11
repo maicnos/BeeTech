@@ -2,6 +2,8 @@ module com.app.projetobeetech {
     requires javafx.controls;
     requires javafx.fxml;
     requires jbcrypt;
+    requires java.sql;
+    requires java.desktop;
 
 
     opens com.app.projetoBeeTech to javafx.fxml;

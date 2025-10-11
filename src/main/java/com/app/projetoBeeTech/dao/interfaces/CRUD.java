@@ -1,4 +1,4 @@
-package com.app.projetoBeeTech.dao;
+package com.app.projetoBeeTech.dao.interfaces;
 
 import java.util.List;
 
