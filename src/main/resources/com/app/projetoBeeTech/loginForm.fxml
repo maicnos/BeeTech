@@ -17,9 +17,9 @@
                   <Font name="Cantarell Regular" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="adminUserButton" layoutX="126.0" layoutY="126.0" prefHeight="24.0" prefWidth="255.0" promptText="Administrador" styleClass="textfield" stylesheets="@designLogin.css" />
+            <TextField fx:id="adminUsername" layoutX="126.0" layoutY="126.0" prefHeight="24.0" prefWidth="255.0" promptText="Administrador" styleClass="textfield" stylesheets="@designLogin.css" />
             <PasswordField fx:id="adminPassWordField" layoutX="128.0" layoutY="178.0" prefHeight="24.0" prefWidth="255.0" promptText="Senha" styleClass="textfield" stylesheets="@designLogin.css" />
-            <Button fx:id="adminLoginButton" layoutX="196.0" layoutY="229.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
+            <Button fx:id="adminLoginButton" layoutX="196.0" layoutY="251.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
          </children>
       </AnchorPane>
       <Button fx:id="cancelButton" layoutX="601.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancel" styleClass="cancel-btn" text="Cancelar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
@@ -36,10 +36,11 @@
                   <Font name="Cantarell Regular" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="agenteUserButton" layoutX="126.0" layoutY="126.0" prefHeight="24.0" prefWidth="255.0" promptText="Agente" styleClass="textfield" stylesheets="@designLogin.css" />
+            <TextField fx:id="agenteUsername" layoutX="126.0" layoutY="126.0" prefHeight="24.0" prefWidth="255.0" promptText="Agente" styleClass="textfield" stylesheets="@designLogin.css" />
             <PasswordField fx:id="agentePassWordField" layoutX="128.0" layoutY="178.0" prefHeight="24.0" prefWidth="255.0" promptText="Senha" styleClass="textfield" stylesheets="@designLogin.css" />
-            <Button fx:id="agenteLoginButton" layoutX="196.0" layoutY="229.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
+            <Button fx:id="agenteLoginButton" layoutX="196.0" layoutY="229.0" mnemonicParsing="false" onAction="#agenteLogin" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
          </children>
       </AnchorPane>
+      <Label fx:id="loginAlert" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="425.0" prefHeight="16.0" prefWidth="487.0" textAlignment="CENTER" textFill="RED" />
    </children>
 </AnchorPane>

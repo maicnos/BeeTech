@@ -10,4 +10,6 @@ module com.app.projetobeetech {
     exports com.app.projetoBeeTech;
     exports com.app.projetoBeeTech.controller;
     opens com.app.projetoBeeTech.controller to javafx.fxml;
+    exports com.app.projetoBeeTech.test;
+    opens com.app.projetoBeeTech.test to javafx.fxml;
 }

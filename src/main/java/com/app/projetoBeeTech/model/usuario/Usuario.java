@@ -7,19 +7,17 @@ public abstract class Usuario {
     private String nome;
     private String cpf;
     private String telefone;
-    private String endereco;
     private String senhaHash;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String nome, String cpf, String telefone, String endereco, String senha) {
+    public Usuario(int id, String nome, String cpf, String telefone, String senhaHash) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.endereco = endereco;
-        setSenha(senha);
+        this.senhaHash = senhaHash;
     }
 
     public int getId() {
@@ -54,24 +52,13 @@ public abstract class Usuario {
         this.telefone = telefone;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getSenhaHash() {
+        return senhaHash;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setSenhaHash(String senhaHash) {
+        this.senhaHash = senhaHash;
     }
-
-
-    public void setSenha(String senha) {
-        this.senhaHash = BCrypt.hashpw(senha, BCrypt.gensalt());
-    }
-
-    public boolean validarSenha(String senha) {
-        return BCrypt.checkpw(senha, this.senhaHash);
-    }
-
-
 
     @Override
     public String toString() {
@@ -80,7 +67,6 @@ public abstract class Usuario {
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ", endereco='" + endereco + '\'' +
                 '}';
     }
 }
