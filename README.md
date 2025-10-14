@@ -5,23 +5,22 @@ Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC,
 📋 Checklist de Desenvolvimento
 
 🔧 Tecnologias
-- [x] Java 11+
-- [ ] JavaFX configurado
+- [x] Java 17
+- [x] JavaFX configurado
 - [ ] MySQL
-- [ ] JDBC
-- [ ] Scene Builder (opcional)
+- [x] JDBC
+- [x] Scene Builder
 
 🧠 Padrões de Projeto
-- [ ] MVC (Model-View-Controller)
-- [ ] DAO (Data Access Object)
-- [ ] Singleton (para conexão com o banco)
+- [x] MVC (Model-View-Controller)
+- [x] DAO (Data Access Object)
+- [x] Singleton (para conexão com o banco)
 
 📁 Estrutura do Projeto
-- [ ] model/ → Classes de domínio
-- [ ] view/ → Interfaces gráficas (FXML + Controllers)
-- [ ] controller/ → Lógica de controle
-- [ ] dao/ → Acesso ao banco de dados
-- [ ] util/ → Classe Singleton para conexão
+- [x] model/ → Classes de domínio
+- [ ] resources/ → Interfaces gráficas (.fxml + .css)
+- [x] controller/ → Lógica de controle
+- [x] dao/ → Acesso ao banco de dados e ConnectioFactory com Singleton
 
 🗃️ Funcionalidades CRUD
 - [ ] Criar registros
@@ -31,7 +30,7 @@ Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC,
 
 🛠️ Banco de Dados
 - [ ] Script SQL para criação das tabelas
-- [ ] Conexão via JDBC
+- [x] Conexão via JDBC
 - [ ] Teste de conexão ao iniciar o app
 
 🧪 Testes
