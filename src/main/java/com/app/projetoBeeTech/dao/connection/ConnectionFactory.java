@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /*
-    Central de conexão com o banco de dados.
+    Central de conexão com o banco de dados
     Singleton aplicado
     DAOs já utilizando esta central
 

@@ -1,13 +1,15 @@
 package com.app.projetoBeeTech.controller;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
 
-import com.app.projetoBeeTech.dao.connection.ConnectionFactory;
 import com.app.projetoBeeTech.dao.implemetacoes.AdministradorImpl;
 import com.app.projetoBeeTech.dao.implemetacoes.AgenteNegociosImpl;
-import com.app.projetoBeeTech.model.usuario.Administrador;
 import com.app.projetoBeeTech.util.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -81,6 +83,31 @@ public class LoginController {
             loginAlert.setText("Login de Agente de Negócios realizado com sucesso!");
             System.out.println("Sucesso");
             // Redirecionar para a tela principal do agente
+
+            try {
+                // carrega o fxml do agente
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/projetoBeeTech/agenteMain.fxml"));
+                Parent root = loader.load();
+
+                // Pega o controller da tela do agente
+                AgenteMainController controller = loader.getController();
+                //controller.setAgente(agente); // passa o objeto agente para o controller
+
+                // Cria um novo Stage
+                Stage agenteStage = new Stage();
+                agenteStage.setTitle("Painel do Agente de Negócios");
+                agenteStage.setScene(new Scene(root));
+                agenteStage.setResizable(true);
+                agenteStage.show();
+
+                // Fecha a tela de login
+                Stage loginStage = (Stage) agenteLoginButton.getScene().getWindow();
+                loginStage.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                loginAlert.setText("Erro ao abrir a tela do agente.");
+            }
         } else {
             loginAlert.setText("Erro, CPF ou senha incorretos.");
             System.out.println("Erro");
