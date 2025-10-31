@@ -1,11 +1,14 @@
 package com.app.projetoBeeTech.model.financeiro;
 
+import com.app.projetoBeeTech.model.producao.Apicultor;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Inventario {
     private int id;
+    private Apicultor apicultor;
     private List<Bem> listaBem;
 
     public Inventario() {
@@ -18,6 +21,14 @@ public class Inventario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Apicultor getApicultor() {
+        return apicultor;
+    }
+
+    public void setApicultor(Apicultor apicultor) {
+        this.apicultor = apicultor;
     }
 
     public List<Bem> getListaBem() {

@@ -4,15 +4,20 @@ import java.util.Date;
 
 public class Producao {
     private int id;
-
-
-    private enum tipo { MEL, CERA, PROPOLIS};
+    private Tipo tipo;
     private double quantidade;
     private Date data;
 
-    public Producao(int id, double quantidade, Date data) {
+    private Caixa caixa;
+
+    public enum Tipo {
+        MEL, CERA, PROPOLIS
+    }
+
+    public Producao(int id, Tipo tipo, double quantidade, Date data) {
         this.id = id;
         this.quantidade = quantidade;
+        this.tipo = tipo;
         this.data = data;
     }
 
@@ -34,10 +39,21 @@ public class Producao {
     }
 
 
-    public String getTipo() {
-        return "";
+    public Tipo getTipo() {
+        return tipo;
     }
 
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public Caixa getCaixa() {
+        return caixa;
+    }
+
+    public void setCaixa(Caixa caixa) {
+        this.caixa = caixa;
+    }
 
     public Date getData() {
         return data;
@@ -46,6 +62,8 @@ public class Producao {
     public void setData(Date data) {
         this.data = data;
     }
+
+
 
     @Override
     public String toString() {
