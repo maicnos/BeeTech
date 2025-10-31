@@ -11,6 +11,8 @@ public class Bem {
     private double valor;
     private LocalDate data;
 
+    private Inventario inventario;
+
     public Bem(int id, String item, int quantidade, String descricao, double valor, LocalDate data) {
         this.id = id;
         this.item = item;
@@ -68,6 +70,13 @@ public class Bem {
         this.data = data;
     }
 
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
 
     @Override
     public String toString() {

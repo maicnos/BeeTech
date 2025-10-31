@@ -10,6 +10,8 @@ public class Apiario {
     private List<Caixa> listaCaixas;
     private List<Producao> listaProducao;
 
+    private Apicultor apicultor;
+
     public Apiario(int id, String nome, String localizacao) {
         this.id = id;
         this.nome = nome;
@@ -56,6 +58,14 @@ public class Apiario {
 
     public void setListaProducao(List<Producao> listaProducao) {
         this.listaProducao = listaProducao;
+    }
+
+    public Apicultor getApicultor() {
+        return apicultor;
+    }
+
+    public void setApicultor(Apicultor apicultor) {
+        this.apicultor = apicultor;
     }
 
     @Override

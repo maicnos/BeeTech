@@ -7,6 +7,8 @@ public class Caixa {
     private int id;
     private String identificacao;
 
+    private Apiario apiario;
+
     private List<Producao> listaProducao;
 
     public Caixa(int id, String identificacao) {
@@ -39,6 +41,13 @@ public class Caixa {
         this.listaProducao = listaProducao;
     }
 
+    public Apiario getApiario() {
+        return apiario;
+    }
+
+    public void setApiario(Apiario apiario) {
+        this.apiario = apiario;
+    }
 
     @Override
     public String toString() {

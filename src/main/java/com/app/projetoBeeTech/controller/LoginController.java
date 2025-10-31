@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.StageStyle;
 
 public class LoginController {
 
@@ -62,21 +63,46 @@ public class LoginController {
     public void adminLogin() {
         String cpf = adminUsername.getText();
         String senha = adminPassWordField.getText();
+        System.out.println("Login de administrador feito!");
 
 
         if (auth.autenticarAdmin(cpf,senha)) {
             loginAlert.setText("Login de administrador realizado com sucesso!");
             // Redirecionar para a tela principal do admin
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/projetoBeeTech/adminMain.fxml"));
+                Parent root = loader.load();
+
+                Stage adminStage = new Stage();
+                adminStage.setTitle("Painel de Administração do Sistema");
+                adminStage.setScene(new Scene(root));
+                adminStage.initStyle(StageStyle.UNDECORATED);
+                adminStage.setResizable(true);
+
+                adminStage.show();
+
+                Stage loginStage = (Stage) adminLoginButton.getScene().getWindow();
+                loginStage.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                loginAlert.setText("Erro ao abrir a tela do administrador.");
+
+            }
         } else {
             loginAlert.setText("Erro, CPF ou senha incorretos.");
         }
 
     }
 
+
+
+
     public void agenteLogin() {
         String cpf = agenteUsername.getText();
         String senha = agentePassWordField.getText();
-        System.out.println("Aqui foi");
+        System.out.println("Login de agente feito!");
 
 
         if (auth.autenticarAgente(cpf, senha)) {
@@ -98,6 +124,7 @@ public class LoginController {
                 agenteStage.setTitle("Painel do Agente de Negócios");
                 agenteStage.setScene(new Scene(root));
                 agenteStage.setResizable(true);
+                //agenteStage.initStyle(StageStyle.UNDECORATED);
                 agenteStage.show();
 
                 // Fecha a tela de login

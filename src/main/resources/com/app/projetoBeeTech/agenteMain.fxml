@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="478.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.AgenteMainController">
    <children>
       <VBox layoutX="20.0" layoutY="14.0" prefHeight="455.0" prefWidth="131.0">
@@ -54,7 +53,7 @@
                   <Button layoutX="312.0" layoutY="364.0" mnemonicParsing="false" text="Excluir" />
                </children>
             </Pane>
-            <Pane fx:id="paneApicultor" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <Pane fx:id="paneApicultor" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <TableView layoutX="7.0" layoutY="21.0" prefHeight="300.0" prefWidth="577.0">
                     <columns>
