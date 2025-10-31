@@ -10,9 +10,10 @@ public class Apiario {
     private List<Caixa> listaCaixas;
     private List<Producao> listaProducao;
 
-    public Apiario(int id, String nome) {
+    public Apiario(int id, String nome, String localizacao) {
         this.id = id;
         this.nome = nome;
+        this.localizacao = localizacao;
         this.listaCaixas = new ArrayList<>();
         this.listaProducao = new ArrayList<>();
     }
