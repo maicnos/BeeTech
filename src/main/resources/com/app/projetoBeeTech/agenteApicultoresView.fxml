@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="636.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.AgenteApicultoresController">
+   <children>
+      <TableView fx:id="tabelaApicultores" layoutX="29.0" layoutY="33.0" prefHeight="397.0" prefWidth="836.0">
+        <columns>
+          <TableColumn fx:id="colunaApicultor" prefWidth="236.0" text="Apicultor" />
+          <TableColumn fx:id="colunaCpfCnpj" minWidth="0.0" prefWidth="190.0" text="CPF/CNPJ" />
+            <TableColumn fx:id="colunaTelefone" prefWidth="201.0" text="Telefone" />
+            <TableColumn fx:id="colunaEndereco" prefWidth="208.0" text="Endereço" />
+        </columns>
+      </TableView>
+      <TextField fx:id="apicultorNome" layoutX="29.0" layoutY="459.0" promptText="Nome" />
+      <TextField fx:id="apicultorCpfCnpj" layoutX="29.0" layoutY="513.0" promptText="CPF/CNPJ" />
+      <TextField fx:id="apicultorTelefone" layoutX="29.0" layoutY="566.0" promptText="Telefone" />
+      <TextArea fx:id="apicultorEndereco" layoutX="207.0" layoutY="459.0" prefHeight="133.0" prefWidth="394.0" promptText="Endereço" />
+      <Button fx:id="buttonAdicionarApicultor" layoutX="644.0" layoutY="459.0" mnemonicParsing="false" onAction="#adicionarApicultor" text="Adicionar" />
+      <Button fx:id="buttonAtualizarApicultor" layoutX="744.0" layoutY="459.0" mnemonicParsing="false" onAction="#atualizarApicultor" text="Atualizar" />
+      <Button fx:id="buttonExcluirApicultor" layoutX="703.0" layoutY="501.0" mnemonicParsing="false" onAction="#excluirApicultor" text="Excluir" />
+   </children>
+</AnchorPane>
