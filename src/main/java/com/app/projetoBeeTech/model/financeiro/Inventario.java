@@ -15,6 +15,13 @@ public class Inventario {
         this.listaBem = new ArrayList<>();
     }
 
+    public Inventario(int id, Apicultor apicultor) {
+        this.id = id;
+        this.apicultor = apicultor;
+        this.listaBem = new ArrayList<>();
+    }
+
+
     public int getId() {
         return id;
     }

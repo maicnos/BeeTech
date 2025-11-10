@@ -3,25 +3,28 @@ package com.app.projetoBeeTech.dao.implemetacoes;
 import com.app.projetoBeeTech.dao.connection.ConnectionFactory;
 import com.app.projetoBeeTech.dao.interfaces.BemDAO;
 import com.app.projetoBeeTech.model.financeiro.Bem;
+import com.app.projetoBeeTech.model.financeiro.Inventario;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
 public class BemImpl implements BemDAO {
+
     @Override
     public Bem create(Bem obj) {
         String sql = "INSERT INTO bem (item, quantidade, descricao, valor, data, id_inventario) VALUES (?, ?, ?, ?, ?, ?)";
 
-        Connection conn = ConnectionFactory.getInstance().getConnection();
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, obj.getItem());
             stmt.setInt(2, obj.getQuantidade());
             stmt.setString(3, obj.getDescricao());
             stmt.setDouble(4, obj.getValor());
             stmt.setDate(5, Date.valueOf(obj.getData()));
-            stmt.setInt(6, 1);
+            stmt.setInt(6, obj.getInventario().getId()); // ✅ Correção
+
             stmt.executeUpdate();
 
             try (ResultSet rs = stmt.getGeneratedKeys()) {
@@ -29,20 +32,20 @@ public class BemImpl implements BemDAO {
                     obj.setId(rs.getInt(1));
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return obj;
     }
 
+
     @Override
     public List<Bem> read() {
         List<Bem> listaBem = new ArrayList<>();
         String sql = "SELECT * FROM bem";
 
-        try (   Connection conn = ConnectionFactory.getInstance().getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
@@ -54,6 +57,8 @@ public class BemImpl implements BemDAO {
                         rs.getDouble("valor"),
                         rs.getDate("data").toLocalDate()
                 );
+
+                bem.setInventario(new Inventario(rs.getInt("id_inventario"), null));
                 listaBem.add(bem);
             }
 
@@ -62,6 +67,7 @@ public class BemImpl implements BemDAO {
         }
         return listaBem;
     }
+
 
     @Override
     public void update(Bem obj) {
@@ -93,4 +99,36 @@ public class BemImpl implements BemDAO {
         }
 
     }
+
+    public List<Bem> readByInventario(int idInventario) {
+        List<Bem> listaBem = new ArrayList<>();
+        String sql = "SELECT * FROM bem WHERE id_inventario = ?";
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idInventario);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Bem bem = new Bem(
+                            rs.getInt("id"),
+                            rs.getString("item"),
+                            rs.getInt("quantidade"),
+                            rs.getString("descricao"),
+                            rs.getDouble("valor"),
+                            rs.getDate("data").toLocalDate()
+                    );
+                    bem.setInventario(new Inventario(idInventario, null));
+                    listaBem.add(bem);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaBem;
+    }
+
 }

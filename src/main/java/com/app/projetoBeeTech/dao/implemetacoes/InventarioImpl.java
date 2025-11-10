@@ -40,6 +40,9 @@ public class InventarioImpl implements InventarioDAO {
 
     @Override
     public List<Inventario> read() {
+
+
+
         List<Inventario> inventarios = new ArrayList<>();
         String sql = """
                 SELECT i.id AS id_inventario, 

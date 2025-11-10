@@ -54,17 +54,17 @@ public class AgenteMainController {
 
     @FXML
     void abrirTelaApiario(ActionEvent event) {
-        abrirNovaJanela("/com/app/projetoBeeTech/agenteApiariosView.fxml.fxml", "Gerenciar Apiários");
+        abrirNovaJanela("/com/app/projetoBeeTech/agenteApiariosView.fxml", "Gerenciar Apiários");
     }
 
     @FXML
     void abrirTelaApicultor(ActionEvent event) {
-        abrirNovaJanela("/com/app/projetoBeeTech/agenteApicultoresView.fxml.fxml", "Gerenciar Apicultores");
+        abrirNovaJanela("/com/app/projetoBeeTech/agenteApicultoresView.fxml", "Gerenciar Apicultores");
     }
 
     @FXML
     void abrirTelaCaixas(ActionEvent event) {
-        abrirNovaJanela("/com/app/projetoBeeTech/agenteCaixasView.fxml.fxml", "Gerenciar Caixas");
+        abrirNovaJanela("/com/app/projetoBeeTech/agenteCaixasView.fxml", "Gerenciar Caixas");
     }
 
     @FXML
@@ -79,7 +79,7 @@ public class AgenteMainController {
 
     @FXML
     void abrirTelaRelatorio(ActionEvent event) {
-        abrirNovaJanela("/com/app/projetoBeeTech/agenteRelatorioView.fxml.fxml", "Relatórios");
+        abrirNovaJanela("/com/app/projetoBeeTech/agenteRelatorioView.fxml", "Relatórios");
     }
 
     @FXML

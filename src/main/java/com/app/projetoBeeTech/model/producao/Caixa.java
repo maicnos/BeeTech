@@ -17,6 +17,9 @@ public class Caixa {
         this.listaProducao = new ArrayList<>();
     }
 
+    public Caixa() {
+    }
+
     public int getId() {
         return id;
     }

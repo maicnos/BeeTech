@@ -1,15 +1,14 @@
 package com.app.projetoBeeTech.model.financeiro;
 
+import com.app.projetoBeeTech.model.producao.Apicultor;
 import java.util.Date;
 
 public class Gasto {
     private int id;
-
-
-
-    private enum tipo { TRANSPORTE, INSUMOS, MANUTENCAO };
+    private String tipo;
     private double valor;
     private Date data;
+    private Apicultor apicultor;
 
     public Gasto(int id, double valor, Date data) {
         this.id = id;
@@ -17,40 +16,25 @@ public class Gasto {
         this.data = data;
     }
 
-    public int getId() {
-        return id;
-    }
+    public Gasto() {}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public double getValor() {
-        return valor;
-    }
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
+    public double getValor() { return valor; }
+    public void setValor(double valor) { this.valor = valor; }
 
-    public Date getData() {
-        return data;
-    }
+    public Date getData() { return data; }
+    public void setData(Date data) { this.data = data; }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public String getTipo() {
-        return "";
-    }
+    public Apicultor getApicultor() { return apicultor; }
+    public void setApicultor(Apicultor apicultor) { this.apicultor = apicultor; }
 
     @Override
     public String toString() {
-        return "Gasto{" +
-                "id=" + id +
-                ", valor=" + valor +
-                ", data=" + data +
-                '}';
+        return tipo + " - R$ " + valor;
     }
 }

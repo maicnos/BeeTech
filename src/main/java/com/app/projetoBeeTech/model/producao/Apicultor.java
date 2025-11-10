@@ -28,6 +28,9 @@ public class Apicultor {
         this.listaGastos = new ArrayList<>();
     }
 
+    public Apicultor() {
+    }
+
     public int getId() {
         return id;
     }

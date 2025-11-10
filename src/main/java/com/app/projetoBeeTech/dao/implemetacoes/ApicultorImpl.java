@@ -100,4 +100,32 @@ public class ApicultorImpl implements ApicultorDAO {
             e.printStackTrace();
         }
     }
+
+    public Apicultor readById(int id) {
+        String sql = "SELECT * FROM apicultor WHERE id = ?";
+        Apicultor apicultor = null;
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    apicultor = new Apicultor();
+                    apicultor.setId(rs.getInt("id"));
+                    apicultor.setNome(rs.getString("nome"));
+                    apicultor.setCpfCnpj(rs.getString("cpfCnpj"));
+                    apicultor.setTelefone(rs.getString("telefone"));
+                    apicultor.setEndereco(rs.getString("endereco"));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return apicultor;
+    }
+
 }

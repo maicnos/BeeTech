@@ -22,6 +22,9 @@ public class Bem {
         this.data = data;
     }
 
+    public Bem() {
+    }
+
     public int getId() {
         return id;
     }

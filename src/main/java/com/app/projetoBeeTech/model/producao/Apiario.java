@@ -20,6 +20,9 @@ public class Apiario {
         this.listaProducao = new ArrayList<>();
     }
 
+    public Apiario() {
+    }
+
     public int getId() {
         return id;
     }

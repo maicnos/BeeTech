@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.app.projetoBeeTech.AgenteInventarioView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="636.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.AgenteInventarioController">
+   <children>
+      <ComboBox fx:id="comboBoxApicultor" layoutX="39.0" layoutY="29.0" prefHeight="24.0" prefWidth="377.0" promptText="Selecione um apicultor" />
+      <TableView fx:id="tabelaBensInventario" layoutX="35.0" layoutY="94.0" prefHeight="272.0" prefWidth="834.0">
+        <columns>
+          <TableColumn fx:id="colunaBemItem" prefWidth="241.99998474121094" text="Item" />
+          <TableColumn fx:id="colunaBensQuantidade" prefWidth="99.00001525878906" text="Quantidade" />
+            <TableColumn fx:id="colunaBensValor" prefWidth="77.33331298828125" text="Valor" />
+            <TableColumn fx:id="colunaBensData" prefWidth="110.33334350585938" text="Data" />
+            <TableColumn fx:id="colunaBensDescricao" prefWidth="308.0000305175781" text="Descriçao" />
+        </columns>
+      </TableView>
+      <Label layoutX="45.0" layoutY="67.0" text="Inventario" />
+      <TextField fx:id="textFieldBemItem" layoutX="55.0" layoutY="392.0" prefHeight="24.0" prefWidth="180.0" promptText="Item" />
+      <TextField fx:id="textFieldBemQuantidade" layoutX="57.0" layoutY="432.0" prefHeight="24.0" prefWidth="174.0" promptText="Quantidade" />
+      <TextField fx:id="textFieldBemValor" layoutX="56.0" layoutY="476.0" promptText="Valor em R$" />
+      <DatePicker fx:id="datePickerBemData" layoutX="56.0" layoutY="517.0" prefHeight="24.0" prefWidth="177.0" promptText="Data" />
+      <TextArea fx:id="textAreaBemDescricao" layoutX="259.0" layoutY="390.0" prefHeight="155.0" prefWidth="308.0" promptText="Descriçao do item (opcional)" />
+      <Button fx:id="buttonAdicionarBem" layoutX="632.0" layoutY="404.0" mnemonicParsing="false" onAction="#adicionarBem" text="Adicionar" />
+      <Button fx:id="buttonAtualizarBem" layoutX="739.0" layoutY="404.0" mnemonicParsing="false" onAction="#atualizarBem" text="Atualizar" />
+      <Button fx:id="buttonExcluirBem" layoutX="684.0" layoutY="456.0" mnemonicParsing="false" onAction="#excluirBem" text="Excluir" />
+   </children>
 </AnchorPane>
