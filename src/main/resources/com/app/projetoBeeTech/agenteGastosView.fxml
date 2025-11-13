@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="636.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.AgenteGastosController">
+<AnchorPane prefHeight="636.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.agente.AgenteGastosController">
    <children>
       <ComboBox fx:id="comboBoxApicultor" layoutX="39.0" layoutY="27.0" prefHeight="24.0" prefWidth="382.0" promptText="Selecione o Apicultor" />
       <TableView fx:id="tabelaGastos" layoutX="21.0" layoutY="75.0" prefHeight="293.0" prefWidth="855.0">

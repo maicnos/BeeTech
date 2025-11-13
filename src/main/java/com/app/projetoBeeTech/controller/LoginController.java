@@ -1,13 +1,15 @@
 package com.app.projetoBeeTech.controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
+import com.app.projetoBeeTech.model.usuario.Administrador;
+import com.app.projetoBeeTech.model.usuario.AgenteNegocios;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 import com.app.projetoBeeTech.dao.implemetacoes.AdministradorImpl;
 import com.app.projetoBeeTech.dao.implemetacoes.AgenteNegociosImpl;
 import com.app.projetoBeeTech.util.Auth;
@@ -18,32 +20,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
+import javafx.event.ActionEvent;
 
 public class LoginController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button adminLoginButton;
-
-    @FXML
-    private PasswordField adminPassWordField;
-
-    @FXML
-    private TextField adminUsername;
-
-    @FXML
-    private Button agenteLoginButton;
-
-    @FXML
-    private PasswordField agentePassWordField;
-
-    @FXML
-    private TextField agenteUsername;
+    private Button buttonLogin;
 
     @FXML
     private Button cancelButton;
@@ -52,124 +34,97 @@ public class LoginController {
     private AnchorPane loginAdmin;
 
     @FXML
-    private AnchorPane loginAgente;
+    private Label loginAlert;
 
     @FXML
-    private Label loginAlert;
+    private PasswordField textFieldPasswd;
+
+    @FXML
+    private TextField textFieldUser;
 
     private final Auth auth = new Auth(new AdministradorImpl(), new AgenteNegociosImpl());
 
 
-    public void adminLogin() {
-        String cpf = adminUsername.getText();
-        String senha = adminPassWordField.getText();
-        System.out.println("Login de administrador feito!");
 
-
-        if (auth.autenticarAdmin(cpf,senha)) {
-            loginAlert.setText("Login de administrador realizado com sucesso!");
-            // Redirecionar para a tela principal do admin
-
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/projetoBeeTech/adminMain.fxml"));
-                Parent root = loader.load();
-
-                Stage adminStage = new Stage();
-                adminStage.setTitle("Painel de Administração do Sistema");
-                adminStage.setScene(new Scene(root));
-                adminStage.initStyle(StageStyle.UNDECORATED);
-                adminStage.setResizable(true);
-
-                adminStage.show();
-
-                Stage loginStage = (Stage) adminLoginButton.getScene().getWindow();
-                loginStage.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                loginAlert.setText("Erro ao abrir a tela do administrador.");
-
-            }
-        } else {
-            loginAlert.setText("Erro, CPF ou senha incorretos.");
+    private void pressionarEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            execLogin();
         }
-
     }
 
 
 
-
-    public void agenteLogin() {
-        String cpf = agenteUsername.getText();
-        String senha = agentePassWordField.getText();
-        System.out.println("Login de agente feito!");
-
-
-        if (auth.autenticarAgente(cpf, senha)) {
-            loginAlert.setText("Login de Agente de Negócios realizado com sucesso!");
-            System.out.println("Sucesso");
-            // Redirecionar para a tela principal do agente
-
-            try {
-                // carrega o fxml do agente
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/app/projetoBeeTech/agenteMain.fxml"));
-                Parent root = loader.load();
-
-                // Pega o controller da tela do agente
-                AgenteMainController controller = loader.getController();
-                //controller.setAgente(agente); // passa o objeto agente para o controller
-
-                // Cria um novo Stage
-                Stage agenteStage = new Stage();
-                agenteStage.setTitle("Painel do Agente de Negócios");
-                agenteStage.setScene(new Scene(root));
-                agenteStage.setResizable(true);
-                //agenteStage.initStyle(StageStyle.UNDECORATED);
-                agenteStage.show();
-
-                // Fecha a tela de login
-                Stage loginStage = (Stage) agenteLoginButton.getScene().getWindow();
-                loginStage.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                loginAlert.setText("Erro ao abrir a tela do agente.");
-            }
-        } else {
-            loginAlert.setText("Erro, CPF ou senha incorretos.");
-            System.out.println("Erro");
-        }
-
-    }
-
-
-    public void loginAdminShow() {
-        loginAdmin.setVisible(true);
-        loginAgente.setVisible(false);
-    }
-
-    public void loginAgenteShow() {
-        loginAgente.setVisible(true);
-        loginAdmin.setVisible(false);
-    }
-
-    public void cancel() {
-        //ConnectionFactory.getInstance().closeConnection(); // Fecha a conexão com o banco
+    @FXML
+    void cancelar(ActionEvent event) {
         System.exit(0);
+
+    }
+
+    @FXML
+    void login(ActionEvent event) {
+        execLogin();
+
+
+    }
+
+
+    private void execLogin(){
+
+        String cpfCnpj = textFieldUser.getText().trim();
+        String senha = textFieldPasswd.getText().trim();
+
+        if (cpfCnpj.isEmpty() || senha.isEmpty()) {
+            loginAlert.setText("Preencha todos os campos.");
+            return;
+        }
+
+        try {
+
+            Administrador admin = auth.autenticarAdmin(cpfCnpj, senha);
+            if (admin != null) {
+                abrirTela("/com/app/projetoBeeTech/adminMain.fxml", "Painel de Administração do Sistema");
+                return;
+            }
+
+
+            AgenteNegocios agente = auth.autenticarAgente(cpfCnpj, senha);
+            if (agente != null) {
+                abrirTela("/com/app/projetoBeeTech/agenteMain.fxml", "Painel do Agente de Negócios");
+                return;
+            }
+
+
+            loginAlert.setText("Usuário ou senha incorretos.");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            loginAlert.setText("Erro ao tentar realizar login.");
+        }
+
+    }
+
+
+    private void abrirTela(String caminhoFXML, String titulo) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFXML));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setTitle(titulo);
+        stage.setScene(new Scene(root));
+        stage.setResizable(true);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
+
+
+        Stage loginStage = (Stage) buttonLogin.getScene().getWindow();
+        loginStage.close();
     }
 
     @FXML
     void initialize() {
-        assert adminLoginButton != null : "fx:id=\"adminLoginButton\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert adminPassWordField != null : "fx:id=\"adminPassWordField\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert adminUsername != null : "fx:id=\"adminUserButton\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert agenteLoginButton != null : "fx:id=\"agenteLoginButton\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert agentePassWordField != null : "fx:id=\"agentePassWordField\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert agenteUsername != null : "fx:id=\"agenteUserButton\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert cancelButton != null : "fx:id=\"cancelButton\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert loginAdmin != null : "fx:id=\"loginAdmin\" was not injected: check your FXML file 'loginForm.fxml'.";
-        assert loginAgente != null : "fx:id=\"loginAgente\" was not injected: check your FXML file 'loginForm.fxml'.";
-
+        textFieldUser.setOnKeyPressed(this::pressionarEnter);
+        textFieldPasswd.setOnKeyPressed(this::pressionarEnter);
     }
 
 }
+

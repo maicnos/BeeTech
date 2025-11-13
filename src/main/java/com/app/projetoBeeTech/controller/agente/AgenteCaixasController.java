@@ -1,4 +1,4 @@
-package com.app.projetoBeeTech.controller;
+package com.app.projetoBeeTech.controller.agente;
 
 import com.app.projetoBeeTech.dao.implemetacoes.ApicultorImpl;
 import com.app.projetoBeeTech.dao.implemetacoes.ApiarioImpl;
@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.StringConverter;
 
 import java.util.List;

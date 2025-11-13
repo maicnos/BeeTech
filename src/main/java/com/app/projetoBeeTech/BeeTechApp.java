@@ -46,7 +46,7 @@ public class BeeTechApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BeeTechApp.class.getResource("loginForm.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 691, 469);
+        Scene scene = new Scene(fxmlLoader.load(), 396, 485);
         stage.setResizable(false);
         stage.setTitle("BeeTech - Login");
         stage.initStyle(StageStyle.UNDECORATED);

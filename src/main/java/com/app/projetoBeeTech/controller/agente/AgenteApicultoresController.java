@@ -1,4 +1,4 @@
-package com.app.projetoBeeTech.controller;
+package com.app.projetoBeeTech.controller.agente;
 
 import com.app.projetoBeeTech.dao.implemetacoes.ApicultorImpl;
 import com.app.projetoBeeTech.model.producao.Apicultor;
@@ -8,7 +8,6 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 

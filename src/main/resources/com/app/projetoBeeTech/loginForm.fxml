@@ -4,43 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="469.0" prefWidth="691.0" styleClass="login-form" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="396.0" styleClass="login-form" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.LoginController">
    <children>
-      <AnchorPane fx:id="loginAdmin" layoutX="102.0" layoutY="63.0" prefHeight="344.0" prefWidth="487.0" styleClass="login-card-form" visible="false">
+      <AnchorPane layoutX="17.0" layoutY="109.0" prefHeight="316.0" prefWidth="358.0" styleClass="login-card-form">
          <children>
-            <Label layoutX="223.0" layoutY="70.0" text="Login">
+            <Label layoutX="68.0" layoutY="60.0" prefHeight="32.0" prefWidth="255.0" text="Bem-vindo a BeeTech">
                <font>
                   <Font name="Cantarell Regular" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="adminUsername" layoutX="126.0" layoutY="126.0" prefHeight="24.0" prefWidth="255.0" promptText="Administrador" styleClass="textfield" />
-            <PasswordField fx:id="adminPassWordField" layoutX="128.0" layoutY="178.0" prefHeight="24.0" prefWidth="255.0" promptText="Senha" styleClass="textfield" />
-            <Button fx:id="adminLoginButton" layoutX="196.0" layoutY="251.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
+            <TextField fx:id="textFieldUser" layoutX="63.0" layoutY="115.0" prefHeight="24.0" prefWidth="255.0" promptText="CPF ou CNPJ" styleClass="textfield" />
+            <PasswordField fx:id="textFieldPasswd" layoutX="65.0" layoutY="167.0" prefHeight="24.0" prefWidth="255.0" promptText="Senha" styleClass="textfield" />
+            <Button fx:id="buttonLogin" layoutX="133.0" layoutY="240.0" mnemonicParsing="false" onAction="#login" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
+            <Label fx:id="loginAlert" alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="202.0" prefHeight="16.0" prefWidth="220.0" textAlignment="CENTER" textFill="RED" />
          </children>
       </AnchorPane>
-      <Button fx:id="cancelButton" layoutX="601.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancel" styleClass="cancel-btn" text="Cancelar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-      <HBox layoutX="102.0" layoutY="31.0" prefHeight="32.0" prefWidth="248.0" AnchorPane.bottomAnchor="406.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#loginAdminShow" prefHeight="30.0" prefWidth="111.0" styleClass="adm-agent-button" text="Administrador" />
-            <Button mnemonicParsing="false" onAction="#loginAgenteShow" prefHeight="30.0" prefWidth="90.0" styleClass="adm-agent-button" text="Agente" />
-         </children>
-      </HBox>
-      <AnchorPane fx:id="loginAgente" layoutX="102.0" layoutY="63.0" prefHeight="344.0" prefWidth="487.0" styleClass="login-card-form">
-         <children>
-            <Label layoutX="223.0" layoutY="70.0" text="Login">
-               <font>
-                  <Font name="Cantarell Regular" size="25.0" />
-               </font>
-            </Label>
-            <TextField fx:id="agenteUsername" layoutX="126.0" layoutY="126.0" prefHeight="24.0" prefWidth="255.0" promptText="Agente" styleClass="textfield" />
-            <PasswordField fx:id="agentePassWordField" layoutX="128.0" layoutY="178.0" prefHeight="24.0" prefWidth="255.0" promptText="Senha" styleClass="textfield" />
-            <Button fx:id="agenteLoginButton" layoutX="196.0" layoutY="229.0" mnemonicParsing="false" onAction="#agenteLogin" prefHeight="46.0" prefWidth="116.0" styleClass="login-btn" text="Entrar" />
-         </children>
-      </AnchorPane>
-      <Label fx:id="loginAlert" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="425.0" prefHeight="16.0" prefWidth="487.0" textAlignment="CENTER" textFill="RED" />
+      <Button fx:id="cancelButton" layoutX="601.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancelar" styleClass="cancel-btn" text="Cancelar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+      <ImageView fx:id="LoginIcon" fitHeight="123.0" fitWidth="127.0" layoutX="141.0" layoutY="32.0" opacity="0.8" pickOnBounds="true">
+         <image>
+            <Image url="@../../../icons/loginIcon.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

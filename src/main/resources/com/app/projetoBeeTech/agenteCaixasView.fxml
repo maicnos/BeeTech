@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="636.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.AgenteCaixasController">
+<AnchorPane prefHeight="636.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.projetoBeeTech.controller.agente.AgenteCaixasController">
    <children>
       <ComboBox fx:id="comboBoxApicultor" layoutX="39.0" layoutY="32.0" prefHeight="24.0" prefWidth="412.0" promptText="Selecione o Apicultor" />
       <ComboBox fx:id="comboBoxApiario" layoutX="480.0" layoutY="32.0" prefHeight="24.0" prefWidth="377.0" promptText="Selecione o Apiario" />

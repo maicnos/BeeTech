@@ -25,10 +25,14 @@ public class Auth {
         return adminDao.create(admin);
     }
 
-    public boolean autenticarAdmin(String cpf, String senha) {
+    public Administrador autenticarAdmin(String cpf, String senha) {
         Administrador admin = adminDao.findByCpf(cpf);
-        return admin != null && HashSenha.verificarSenha(senha, admin.getSenhaHash());
+        if (admin != null && HashSenha.verificarSenha(senha, admin.getSenhaHash())) {
+            return admin; // retorna o objeto autenticado
+        }
+        return null;
     }
+
 
     public AgenteNegocios registrarAgente(String nome, String cpf, String telefone, String senha) {
         String hash = HashSenha.gerarHash(senha);
@@ -40,8 +44,11 @@ public class Auth {
         return agenteDao.create(agente);
     }
 
-    public boolean autenticarAgente(String cpf, String senha) {
+    public AgenteNegocios autenticarAgente(String cpf, String senha) {
         AgenteNegocios agente = agenteDao.findByCpf(cpf);
-        return agente != null && HashSenha.verificarSenha(senha, agente.getSenhaHash());
+        if (agente != null && HashSenha.verificarSenha(senha, agente.getSenhaHash())) {
+            return agente;
+        }
+        return null;
     }
 }

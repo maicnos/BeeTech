@@ -33,9 +33,7 @@ public class AgenteMainController {
     @FXML
     private Button buttonViewRelatorio;
 
-    /**
-     * Método utilitário para abrir uma nova janela (Stage) com o FXML informado.
-     */
+
     private void abrirNovaJanela(String fxmlPath, String tituloJanela) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
@@ -48,7 +46,6 @@ public class AgenteMainController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            // Idealmente, use um Alert em vez de printStackTrace em produção
         }
     }
 
@@ -80,6 +77,12 @@ public class AgenteMainController {
     @FXML
     void abrirTelaRelatorio(ActionEvent event) {
         abrirNovaJanela("/com/app/projetoBeeTech/agenteRelatorioView.fxml", "Relatórios");
+    }
+
+    @FXML
+    void abrirTelaProducao(ActionEvent event) {
+        abrirNovaJanela("/com/app/projetoBeeTech/agenteProducaoView.fxml", "Produção");
+
     }
 
     @FXML

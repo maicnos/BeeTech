@@ -1,4 +1,4 @@
-package com.app.projetoBeeTech.controller;
+package com.app.projetoBeeTech.controller.agente;
 
 import com.app.projetoBeeTech.dao.implemetacoes.ApicultorImpl;
 import com.app.projetoBeeTech.dao.implemetacoes.GastoImpl;
