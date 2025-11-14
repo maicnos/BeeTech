@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="src/main/resources/icons/loginIcon.jpg" width="300">
+</p>
+
 ✅ BeeTech - JavaFX CRUD com MVC, DAO, Singleton e MySQL
 
 Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC, DAO, Singleton e integração com banco de dados MySQL.
@@ -10,8 +14,29 @@ Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC,
   - Interface
     - [ ] Design em CSS (opcional)
     - [x] Tela de login
-    - [ ] Tela do Administrador
-    - [ ] Tela do Agente de Negócios
+    - [x] Tela do Administrador
+    - [x] Agente de Negócios
+        - [x] Gerenciamento de Apicultores
+          - [x] View
+          - [x] Controller
+        - [x] Gerenciamento de Apiários
+          - [x] View
+          - [x] Controller
+        - [x] Gerenciamento de Caixas
+          - [x] View
+          - [x] Controller
+        - [x] Gerenciamento de Gastos
+          - [x] View
+          - [x] Controller
+        - [x] Gerenciamento de Inventário
+          - [x] View
+          - [x] Controller
+        - [ ] Gerenciamento da Produção
+          - [x] View
+          - [ ] Controller
+        - [ ] Relatórios
+          - [ ] View
+          - [ ] Controller
 - [x] MySQL
 - [x] JDBC
 - [x] Scene Builder
@@ -23,9 +48,11 @@ Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC,
 
 📁 Estrutura do Projeto
 - [x] model/ → Classes de domínio
-- [x] resources/ → Interfaces gráficas (.fxml + .css)
+- [x] resources/ → Interfaces gráficas (.fxml + .css + icons/)
 - [x] controller/ → Lógica de controle
 - [x] dao/ → Acesso ao banco de dados e ConnectioFactory com Singleton
+- [x] util/ → Classes utilitárias (hash, autenticação)
+- [x] test/ → Classes de testes (conexão, script .sql)
 
 🗃️ Funcionalidades CRUD
 - [x] Criar registros
@@ -49,7 +76,7 @@ Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC,
 4. Executar a aplicação
 
 📚 Documentação
-- [ ] README com instruções
+- [x] README com checklist do trabalho
 - [ ] Wiki com detalhes técnicos
 
 ---

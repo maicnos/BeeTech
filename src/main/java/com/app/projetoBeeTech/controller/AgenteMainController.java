@@ -33,6 +33,9 @@ public class AgenteMainController {
     @FXML
     private Button buttonViewRelatorio;
 
+    @FXML
+    private Button buttonViewProducao;
+
 
     private void abrirNovaJanela(String fxmlPath, String tituloJanela) {
         try {
@@ -87,7 +90,6 @@ public class AgenteMainController {
 
     @FXML
     void sair(ActionEvent event) {
-        // Fecha apenas a janela atual
         Stage stage = (Stage) buttonSair.getScene().getWindow();
         stage.close();
     }

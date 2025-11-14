@@ -37,7 +37,6 @@ public class AgenteGastosController {
 
     @FXML
     public void initialize() {
-        // Configura colunas
         colunaGastoTipo.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(cell.getValue().getTipo()));
         colunaGastoValor.setCellValueFactory(cell -> new javafx.beans.property.SimpleObjectProperty<>(cell.getValue().getValor()));
         colunaGastoData.setCellValueFactory(cell -> {
@@ -47,7 +46,6 @@ public class AgenteGastosController {
         });
 
 
-        // Preenche combos
         comboBoxGastoTipo.setItems(FXCollections.observableArrayList("TRANSPORTE", "INSUMOS", "MANUTENÇAO"));
         comboBoxApicultor.setItems(FXCollections.observableArrayList(apicultorDAO.read()));
         comboBoxApicultor.setConverter(new javafx.util.StringConverter<>() {
@@ -59,16 +57,16 @@ public class AgenteGastosController {
 
             @Override
             public Apicultor fromString(String string) {
-                // não é usado para seleção direta, então pode retornar null
+
                 return null;
             }
         });
 
 
-        // Evento de seleção do apicultor
+        // selecionar apicultor na tabela
         comboBoxApicultor.setOnAction(e -> carregarGastosPorApicultor());
 
-        // Evento de seleção na tabela
+
         tabelaGastos.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
             if (newSel != null) preencherCampos(newSel);
         });

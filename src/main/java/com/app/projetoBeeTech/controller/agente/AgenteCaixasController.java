@@ -57,16 +57,16 @@ public class AgenteCaixasController {
         configurarComboBoxes();
         carregarApicultores();
 
-        // Inicia com a tabela vazia
+
         tabelaCaixas.setItems(FXCollections.observableArrayList());
 
-        // Quando o apicultor muda → carrega apiários
+
         comboBoxApicultor.setOnAction(e -> carregarApiariosPorApicultor());
 
-        // Quando o apiário muda → carrega caixas
+
         comboBoxApiario.setOnAction(e -> carregarCaixasPorApiario());
 
-        // Ao clicar na tabela → preencher campos
+
         tabelaCaixas.setOnMouseClicked(event -> {
             caixaSelecionada = tabelaCaixas.getSelectionModel().getSelectedItem();
             if (caixaSelecionada != null) {
@@ -81,7 +81,7 @@ public class AgenteCaixasController {
     }
 
 
-    /** Configura as colunas da tabela de caixas */
+
     private void configurarTabela() {
         colunaIdentificacaoCaixa.setCellValueFactory(
                 cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getIdentificacao())
@@ -95,9 +95,8 @@ public class AgenteCaixasController {
         });
     }
 
-    /** Configura como os ComboBoxes exibem os dados */
+
     private void configurarComboBoxes() {
-        // Apicultor: exibe "nome (cpf/ cnpj)"
         comboBoxApicultor.setConverter(new StringConverter<>() {
             @Override
             public String toString(Apicultor apicultor) {
@@ -111,7 +110,7 @@ public class AgenteCaixasController {
             }
         });
 
-        // Apiário: exibe apenas o nome
+        // exibe apenas o nome
         comboBoxApiario.setConverter(new StringConverter<>() {
             @Override
             public String toString(Apiario apiario) {
@@ -125,18 +124,20 @@ public class AgenteCaixasController {
         });
     }
 
-    /** Carrega todos os apicultores do banco */
+
     private void carregarApicultores() {
         List<Apicultor> listaApicultores = apicultorDAO.read();
         comboBoxApicultor.setItems(FXCollections.observableArrayList(listaApicultores));
+        // Carrega os apicultores do banco
     }
 
-    /** Carrega apenas os apiários do apicultor selecionado */
+
     private void carregarApiariosPorApicultor() {
+        //Setar os apiários somente do apicultor selecionado
         Apicultor apicultorSelecionado = comboBoxApicultor.getValue();
         if (apicultorSelecionado != null) {
             List<Apiario> listaApiarios = apiarioDAO.findByApicultorId(apicultorSelecionado.getId());
-            // seta o apicultor explicitamente
+
             for (Apiario apiario : listaApiarios) {
                 apiario.setApicultor(apicultorSelecionado);
             }
@@ -146,7 +147,7 @@ public class AgenteCaixasController {
         }
     }
 
-    /** Carrega apenas as caixas do apiário selecionado */
+
     private void carregarCaixasPorApiario() {
         Apiario apiarioSelecionado = comboBoxApiario.getValue();
         if (apiarioSelecionado != null) {
@@ -159,14 +160,14 @@ public class AgenteCaixasController {
     }
 
 
-    /** Carrega todas as caixas do banco */
+
     private void carregarCaixas() {
         List<Caixa> caixas = caixaDAO.read();
         listaCaixas = FXCollections.observableArrayList(caixas);
         tabelaCaixas.setItems(listaCaixas);
     }
 
-    /** Botão: adicionar nova caixa */
+
     @FXML
     void adicionarCaixa(ActionEvent event) {
         Apiario apiarioSelecionado = comboBoxApiario.getValue();
@@ -185,7 +186,7 @@ public class AgenteCaixasController {
         limparCampos();
     }
 
-    /** Botão: atualizar caixa existente */
+
     @FXML
     void atualizarCaixa(ActionEvent event) {
         if (caixaSelecionada == null) {
@@ -209,7 +210,7 @@ public class AgenteCaixasController {
         limparCampos();
     }
 
-    /** Botão: excluir caixa */
+
     @FXML
     void excluirCaixa(ActionEvent event) {
         if (caixaSelecionada == null) {
@@ -222,7 +223,7 @@ public class AgenteCaixasController {
         limparCampos();
     }
 
-    /** Limpa campos e seleções */
+
     private void limparCampos() {
         textFieldIdentificacaoCaixa.clear();
         comboBoxApiario.getSelectionModel().clearSelection();
@@ -230,7 +231,7 @@ public class AgenteCaixasController {
         caixaSelecionada = null;
     }
 
-    /** Exibe alertas simples */
+
     private void mostrarAlerta(String titulo, String mensagem) {
         Alert alerta = new Alert(Alert.AlertType.WARNING);
         alerta.setTitle(titulo);

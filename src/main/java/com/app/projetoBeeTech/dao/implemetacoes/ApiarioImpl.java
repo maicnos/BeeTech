@@ -13,7 +13,7 @@ public class ApiarioImpl implements ApiarioDAO {
 
     @Override
     public Apiario create(Apiario obj) {
-        // ✅ Garante integridade referencial antes de inserir
+
         if (obj.getApicultor() == null || obj.getApicultor().getId() <= 0) {
             throw new IllegalArgumentException(
                     "Erro: O Apiário deve estar vinculado a um Apicultor existente antes de ser criado."

@@ -28,7 +28,7 @@ public class Auth {
     public Administrador autenticarAdmin(String cpf, String senha) {
         Administrador admin = adminDao.findByCpf(cpf);
         if (admin != null && HashSenha.verificarSenha(senha, admin.getSenhaHash())) {
-            return admin; // retorna o objeto autenticado
+            return admin;
         }
         return null;
     }

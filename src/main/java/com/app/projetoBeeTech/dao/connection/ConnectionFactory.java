@@ -25,7 +25,7 @@ public class ConnectionFactory {
     // Conexão persistente
     private Connection connection;
 
-    // 🔹 Construtor privado (impede "new ConnectionFactory()")
+    // Construtor privado (impede "new ConnectionFactory()")
     private ConnectionFactory() {
         try {
             Class.forName(DRIVER); // Testa se o driver está conectado

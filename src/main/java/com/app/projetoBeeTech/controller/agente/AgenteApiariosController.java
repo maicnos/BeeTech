@@ -105,12 +105,12 @@ public class AgenteApiariosController {
         if (apicultorSelecionado != null) {
             apiarios = FXCollections.observableArrayList(apiarioDAO.findByApicultorId(apicultorSelecionado.getId()));
 
-            // Vincula o apicultor a cada apiário carregado
+
             for (Apiario apiario : apiarios) {
                 apiario.setApicultor(apicultorSelecionado);
             }
 
-            // Atualiza a lista interna do apicultor
+
             apicultorSelecionado.setListaApiarios(apiarios);
 
             tabelaApicultorApiario.setItems(apiarios);

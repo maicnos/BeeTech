@@ -4,7 +4,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.util.Scanner;
 
 /*
-    Classe (programinha em texto) para gerar hashes a partir de senhas - para usar no banco
+    Classe (programinha em texto) para gerar hashes a partir de senhas para testes
 
 */
 
@@ -13,7 +13,7 @@ public class GeradorHashBCrypt {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== GERADOR DE HASH BCRYPT ===");
+        System.out.println("GERADOR DE HASH BCRYPT");
         System.out.print("Digite a senha para gerar o hash: ");
         String senha = scanner.nextLine();
 
@@ -27,9 +27,9 @@ public class GeradorHashBCrypt {
         String tentativa = scanner.nextLine();
 
         if (BCrypt.checkpw(tentativa, hash)) {
-            System.out.println("✅ Senha correta!");
+            System.out.println("Senha correta!");
         } else {
-            System.out.println("❌ Senha incorreta!");
+            System.out.println("Senha incorreta!");
         }
 
         scanner.close();

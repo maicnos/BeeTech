@@ -13,9 +13,9 @@ public class TestConnection {
         Connection conn = ConnectionFactory.getInstance().getConnection();
 
         if (conn != null) {
-            System.out.println("✅ Conexão obtida com sucesso!");
+            System.out.println("Conexão obtida com sucesso!");
         } else {
-            System.out.println("❌ Falha ao obter conexão!");
+            System.out.println("Falha ao obter conexão!");
         }
 
         ConnectionFactory.getInstance().closeConnection();

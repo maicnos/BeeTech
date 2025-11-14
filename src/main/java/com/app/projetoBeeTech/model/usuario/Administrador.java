@@ -1,8 +1,6 @@
 package com.app.projetoBeeTech.model.usuario;
 
 
-import org.mindrot.jbcrypt.BCrypt;
-
 public class Administrador extends Usuario {
     public Administrador() {
     }
