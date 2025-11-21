@@ -152,7 +152,7 @@ public class CaixaImpl implements CaixaDAO {
     public List<Caixa> findByApiarioId(int idApiario) {
         List<Caixa> caixas = new ArrayList<>();
 
-        String sql = "SELECT * FROM caixa WHERE id_apiario = ?";
+        String sql = "SELECT id, identificacao FROM caixa WHERE id_apiario = ?";
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -165,11 +165,6 @@ public class CaixaImpl implements CaixaDAO {
                     caixa.setId(rs.getInt("id"));
                     caixa.setIdentificacao(rs.getString("identificacao"));
 
-                    // Carrega o apiário e o apicultor relacionados
-                    ApiarioImpl apiarioDAO = new ApiarioImpl();
-                    Apiario apiario = apiarioDAO.readById(rs.getInt("id_apiario"));
-                    caixa.setApiario(apiario);
-
                     caixas.add(caixa);
                 }
             }
@@ -177,8 +172,8 @@ public class CaixaImpl implements CaixaDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return caixas;
     }
+
 
 }

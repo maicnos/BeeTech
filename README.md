@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/main/resources/icons/loginIcon.jpg" width="300">
+  <img src="src/main/resources/icons/loginIcon2.png" width="300">
 </p>
 
 ✅ BeeTech - JavaFX CRUD com MVC, DAO, Singleton e MySQL
@@ -31,9 +31,9 @@ Aplicação desktop desenvolvida em Java com JavaFX, utilizando os padrões MVC,
         - [x] Gerenciamento de Inventário
           - [x] View
           - [x] Controller
-        - [ ] Gerenciamento da Produção
+        - [x] Gerenciamento da Produção
           - [x] View
-          - [ ] Controller
+          - [x] Controller
         - [ ] Relatórios
           - [ ] View
           - [ ] Controller

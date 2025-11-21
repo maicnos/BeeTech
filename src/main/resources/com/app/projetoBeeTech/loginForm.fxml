@@ -25,9 +25,9 @@
          </children>
       </AnchorPane>
       <Button fx:id="cancelButton" layoutX="601.0" layoutY="431.0" mnemonicParsing="false" onAction="#cancelar" styleClass="cancel-btn" text="Cancelar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-      <ImageView fx:id="LoginIcon" fitHeight="123.0" fitWidth="127.0" layoutX="141.0" layoutY="32.0" opacity="0.8" pickOnBounds="true">
+      <ImageView fx:id="LoginIcon" fitHeight="164.0" fitWidth="170.0" layoutX="113.0" layoutY="6.0" opacity="0.8" pickOnBounds="true">
          <image>
-            <Image url="@../../../icons/loginIcon.jpg" />
+            <Image url="@../../../icons/loginIcon2.png" />
          </image>
       </ImageView>
    </children>
