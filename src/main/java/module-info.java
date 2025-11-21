@@ -15,4 +15,6 @@ module com.app.projetobeetech {
     opens com.app.projetoBeeTech.model.usuario to javafx.base, javafx.fxml;
     exports com.app.projetoBeeTech.controller.agente;
     opens com.app.projetoBeeTech.controller.agente to javafx.fxml;
+    opens com.app.projetoBeeTech.model.producao to javafx.base;
+
 }
